@@ -17,7 +17,7 @@ public class Conexao {
     
     private static final String url = "jdbc:mysql://localhost:3306/sakila";
     private static final String user = "root";
-    private static final String pass = "";
+    private static final String pass = "admin";
 
    public static Connection conectar(){
        Connection conexao = null;

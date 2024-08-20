@@ -28,7 +28,7 @@ public class FilmesDAO {
                 PreparedStatement stmt = null;
                 ResultSet rs = null;
                 
-                stmt = conexao.prepareStatement("SELECT * FROM film");
+                stmt = conexao.prepareStatement("SELECT * FROM film WHERE film_id > 1000");
                 
                 rs = stmt.executeQuery();
                 
@@ -78,7 +78,7 @@ public class FilmesDAO {
         
     }
     
-    public void DeletarFilme(FilmeBean bean){
+    public void DeletarFilme(int id){
         
         try{
             Connection conexao = Conexao.conectar();
@@ -87,7 +87,7 @@ public class FilmesDAO {
             
             stmt = conexao.prepareStatement("DELETE FROM film WHERE film_id = ?");
             
-            stmt.setInt(1, bean.getFilm_id());
+            stmt.setInt(1, id);
             
             stmt.execute();
             

@@ -20,7 +20,7 @@ import model.dao.FilmesDAO;
  *
  * @author Senai
  */
-@WebServlet(name = "SakilaController", urlPatterns = {"/SakilaController","/sakila","/NovoFilme","/editar"})
+@WebServlet(name = "SakilaController", urlPatterns = {"/SakilaController","/sakila","/NovoFilme","/editar", "/excluir"})
 public class SakilaController extends HttpServlet {
 
     /**
@@ -79,6 +79,12 @@ public class SakilaController extends HttpServlet {
                 
             request.getRequestDispatcher("/WEB-INF/jsp/editar.jsp").forward(request, response);
             
+        } else if(paginaAtual.equals("/excluir")){
+            int id = Integer.parseInt(request.getParameter("filme"));
+            
+            dao.DeletarFilme(id);
+            
+            response.sendRedirect("./sakila");
         }
         
         

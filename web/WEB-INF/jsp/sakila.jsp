@@ -54,7 +54,7 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="filme" items="${lista}" begin="1000">
+                <c:forEach var="filme" items="${lista}">
             
                 <tr>
                     <td class="p-3">${filme.film_id}</td>
@@ -63,8 +63,11 @@
                     <td class="p-3">${filme.release_year}</td>
                     <td>  
                         <a href="./editar?filme=${filme.film_id}"> <%-- O PONTO DE INTERROGAÇÃO SERVE PARA DEFINIR O PARÂMETRO--%>
-                        <button type="button" class="btn btn-danger">Excluir</button>
-                        <button type="button" class="btn btn-warning">Editar</button> 
+                        
+                            <button type="button" class="btn btn-warning">Editar</button> 
+                        </a>
+                        <a href="./excluir?filme=${filme.film_id}">
+                            <button type="button" class="btn btn-danger">Excluir</button>
                         </a>
                     </td>
                 </tr>
