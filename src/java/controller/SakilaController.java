@@ -73,6 +73,7 @@ public class SakilaController extends HttpServlet {
             
             int id = Integer.parseInt(request.getParameter("filme"));
                 FilmeBean filmeAtual = dao.selecionarFilme(id);
+                request.setAttribute("filme", id);
                 request.setAttribute("titulo",filmeAtual.getTitle());
                 request.setAttribute("descricao",filmeAtual.getDescription());
                 request.setAttribute("ano",filmeAtual.getRelease_year());
@@ -114,6 +115,15 @@ public class SakilaController extends HttpServlet {
                 dao.InserirFilme(bean);
             
            response.sendRedirect("./sakila");
+        } else if(paginaAtual.equals("/editar")) {
+              bean.setFilm_id(Integer.parseInt(request.getParameter("filme")));
+              bean.setTitle(request.getParameter("titulo"));
+              bean.setDescription(request.getParameter("desc"));
+              bean.setRelease_year(Integer.parseInt(request.getParameter("ano")));
+              
+              dao.EditarFilme(bean);
+              
+              response.sendRedirect("./sakila");
         }
         
     }

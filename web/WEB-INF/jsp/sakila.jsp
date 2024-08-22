@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="./styles/teste.css">
         
         <style>
             td{
@@ -40,7 +41,7 @@
     </head>
     <body>
         <h1>sakila</h1>
-        <a href="./NovoFilme" class="btn btn-primary"> CADASTRAR FILMES</a> 
+        <a href="./NovoFilme" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a> 
         <table class="tabela-filmes m-auto" >
             <thead>
                 <tr> 
@@ -64,10 +65,10 @@
                     <td>  
                         <a href="./editar?filme=${filme.film_id}"> <%-- O PONTO DE INTERROGAÇÃO SERVE PARA DEFINIR O PARÂMETRO--%>
                         
-                            <button type="button" class="btn btn-warning">Editar</button> 
+                            <button type="button" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button> 
                         </a>
                         <a href="./excluir?filme=${filme.film_id}">
-                            <button type="button" class="btn btn-danger">Excluir</button>
+                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                         </a>
                     </td>
                 </tr>
@@ -76,6 +77,7 @@
         </c:forEach>
             </tbody>
         </table>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
