@@ -28,7 +28,7 @@ public class FilmesDAO {
                 PreparedStatement stmt = null;
                 ResultSet rs = null;
                 
-                stmt = conexao.prepareStatement("SELECT * FROM film WHERE film_id > 1000");
+                stmt = conexao.prepareStatement("SELECT * FROM film WHERE film_id");
                 
                 rs = stmt.executeQuery();
                 
@@ -99,6 +99,31 @@ public class FilmesDAO {
         }
         
     }
+    public void EditarFilme(FilmeBean filme){
+        
+        try{
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            
+            
+            stmt = conexao.prepareStatement("UPDATE film SET title = ?, description = ?, release_year = ? WHERE film_id = ?");
+            
+            stmt.setString(1, filme.getTitle());
+            stmt.setString(2, filme.getDescription());
+            stmt.setInt(3, filme.getRelease_year());
+            stmt.setInt(4, filme.getFilm_id());
+            
+            stmt.executeUpdate();
+            
+            stmt.close();
+            conexao.close();
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+    }
+    
       public FilmeBean selecionarFilme(int id){
        FilmeBean filmeSelecionado = new FilmeBean();
        
